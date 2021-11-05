@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import MusicTable from "./Component/MusicTable";
+import "./App.css"
+import data from "./data.json"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+const [MusicTable, setMuscTable] = useState(data);
+
+  return <div className="app-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Song Title</th>
+          <th>Album</th>
+          <th>Artist</th>
+          <th>Genre</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {MusicTable.map((MusicTable) => ( 
+        <tr>
+      <td>{MusicTable.title}</td>
+      <td>{MusicTable.album}</td>
+       <td>{MusicTable.artist}</td>
+       <td>{MusicTable.genre}</td>
+       <td>{MusicTable.release_date}</td>
+       </tr>
+        ))}
+       </tbody>
+    </table>
+  </div>
 }
+      
+       
+        
+     
+      
 
 export default App;

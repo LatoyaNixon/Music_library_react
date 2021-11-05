@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Tuscan Leather",
+        "artist": "Drake",
+        "album": "Nothing Was The Same",
+        "release_date": "2013-09-24T00:00:00Z"
+    },
+    {
+        "id": 2,
+        "title": "Headlines",
+        "artist": "Drake",
+        "album": "Take Care",
+        "release_date": "2011-11-15T00:00:00Z"
+    },
+    {
+        "id": 3,
+        "title": "Headlines",
+        "artist": "Drake",
+        "album": "Take Care",
+        "release_date": "2011-11-15T00:00:00Z"
+    },
+    {
+        "id": 4,
+        "title": "Love On Top",
+        "artist": "Beyonce",
+        "album": "4",
+        "release_date": "2011-06-24T00:00:00Z"
+    }
+]
