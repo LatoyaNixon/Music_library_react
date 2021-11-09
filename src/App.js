@@ -1,40 +1,69 @@
-import React, { useState } from "react";
-import MusicTable from "./Component/MusicTable";
-import "./App.css"
-import data from "./data.json"
+import React, { Component } from "react";
+import axios from "axios"
+import DisplaySongs from "./Component/DisplaySongs";
 
-const App = () => {
-const [MusicTable, setMuscTable] = useState(data);
+class App extends Component {
 
-  return <div className="app-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Song Title</th>
-          <th>Album</th>
-          <th>Artist</th>
-          <th>Genre</th>
-          <th>Release Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {MusicTable.map((MusicTable) => ( 
-        <tr>
-      <td>{MusicTable.title}</td>
-      <td>{MusicTable.album}</td>
-       <td>{MusicTable.artist}</td>
-       <td>{MusicTable.genre}</td>
-       <td>{MusicTable.release_date}</td>
-       </tr>
-        ))}
-       </tbody>
-    </table>
-  </div>
+  constructor(props){
+    super(props);
+    this.state = {
+      songs: []
+    }
+  }
+  componentDidMount(){
+    this.getSongs()
+  }
+  getSongs = async () =>{
+    let response = await axios.get('http://127.0.0.1:8000/musicapp/');
+    this.setState({
+      songs: response.data.songs
+    })
+  }
+  deleteSongs = async (songs) =>{
+    let response = await axios.delete("http://127.0.0.1:8000/musicapp/");
+  }
+  
+
+  render() {
+    return (
+      <div class ='container'>
+        <hi>Music App</hi>
+        {this.state.jokes.length > 0 &&
+        <DisplaySongs songs={this.state.jokes} getAllSongs= {this.getSongs} />
+        }
+        
+      </div>
+    );
+  }
 }
+
+export default App;
+
+
+
+
+
+
+
+
+    
+
+     
+
+
+
+
+ 
+        
+   
+  
+
+        
+          
       
        
         
      
       
 
-export default App;
+
